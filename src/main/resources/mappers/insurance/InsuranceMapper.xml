@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="InsuranceMapper">
+	<resultMap type="com.mju.insurance.entity.insurance.Insurance" id="insuranceResultMap">
+		<id column="id" property="id"/>
+		<result column="insurance_category" property="insuranceCategory"
+				typeHandler="org.apache.ibatis.type.EnumTypeHandler"/>
+		<result column="name" property="name"/>
+		<result column="insurance_state" property="insuranceState"
+				typeHandler="org.apache.ibatis.type.EnumTypeHandler"/>
+	</resultMap>
+	
+    <select id="selectAll" resultMap="insuranceResultMap">
+        SELECT * FROM insurance
+    </select>
+    <select id="selectByName" resultMap="insuranceResultMap">
+        SELECT * FROM insurance WHERE name = #{insName}
+    </select>
+    <select id="selectById" resultMap="insuranceResultMap">
+        SELECT * FROM insurance WHERE id = #{insuranceId}
+    </select>
+</mapper>

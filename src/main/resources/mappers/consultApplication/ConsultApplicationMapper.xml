@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="ConsultApplicationMapper">
+	<insert id="insert"
+		parameterType="com.mju.insurance.entity.consultApplication.ConsultApplication"
+		useGeneratedKeys="true" keyProperty="id">
+		insert into consult_application values (0, #{customerId}, #{content},
+		#{applicationDate}, #{consultationDate}, #{state}
+		)
+	</insert>
+
+	<select id="selectByCustomerId"
+		resultType="com.mju.insurance.entity.consultApplication.ConsultApplication">
+		SELECT * FROM consult_application where customer_id = #{customerId}
+	</select>
+
+	<select id="deleteByConsultationId"
+		resultType="com.mju.insurance.entity.consultApplication.ConsultApplication">
+		DELETE FROM consult_application WHERE id = #{id}
+	</select>
+
+	<select id="selectAll"
+		resultType="com.mju.insurance.entity.consultApplication.ConsultApplication">
+		SELECT * FROM consult_application
+	</select>
+</mapper>

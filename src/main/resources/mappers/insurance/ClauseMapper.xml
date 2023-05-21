@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<mapper namespace="ClauseMapper">
+	<resultMap type="com.mju.insurance.entity.insurance.Clause" id="clauseResultMap">
+		<id column="id" property="id"/>
+		<result column="clause_category" property="clauseCategory"
+				typeHandler="org.apache.ibatis.type.EnumTypeHandler"/>
+		<result column="insured_amount" property="insuredAmount" javaType="long"/>
+		<result column="premium" property="premium" javaType="long"/>
+		<result column="name" property="name"/>
+		<result column="insurance_id" property="insuranceId"/>
+	</resultMap>
+	
+    <select id="selectAllByInsuranceId" resultMap="clauseResultMap">
+        SELECT * FROM clause where insurance_id = #{insuranceId}
+    </select>
+</mapper>

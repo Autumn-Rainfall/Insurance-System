@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+	PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-config.dtd">
+	
+<configuration>
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <!-- connecting to Local MySQL -->
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
+                <property name="url" value="jdbc:mysql://localhost:3306/insurance_system"/>
+                <property name="username" value="root"/>
+                <property name="password" value="12345678"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <mappers>
+        <mapper resource="mappers/benefitPayment/BenefitPaymentMapper.xml"/>
+        <mapper resource="mappers/cancelApplication/CancelApplicationMapper.xml"/>
+        <mapper resource="mappers/carAccidentHandling/AccidentCarMapper.xml"/>
+        <mapper resource="mappers/carAccidentHandling/AccidentPersonMapper.xml"/>
+        <mapper resource="mappers/carAccidentHandling/CarAccidentHandlingMapper.xml"/>
+        <mapper resource="mappers/consultApplication/ConsultApplicationMapper.xml"/>
+        <mapper resource="mappers/contract/ContractMapper.xml"/>
+        <mapper resource="mappers/customer/CustomerMapper.xml"/>
+        <mapper resource="mappers/customer/AdditionalInfoMapper.xml"/>
+        <mapper resource="mappers/insurance/InsuranceMapper.xml"/>
+        <mapper resource="mappers/insurance/ClauseMapper.xml"/>
+        <mapper resource="mappers/uw/UWDocumentMapper.xml"/>
+        <mapper resource="mappers/uw/UWMapper.xml"/>
+    </mappers>
+</configuration>

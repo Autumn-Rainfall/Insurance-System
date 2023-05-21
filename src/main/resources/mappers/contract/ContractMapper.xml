@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="ContractMapper">
+	<insert id="insert"
+		parameterType="com.mju.insurance.entity.contract.Contract"
+		useGeneratedKeys="true" keyProperty="id">
+		insert into contract values (0, #{contractDateTime}, #{expirationDateTime},
+		#{customerId}, #{insuranceId}, "UNDER_UW")
+	</insert>
+	<select id="selectAll"	
+		resultType="com.mju.insurance.entity.contract.Contract">
+		SELECT * FROM contract
+	</select>
+</mapper>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<mapper namespace="CustomerMapper">                
+    <insert id="insert" parameterType="com.mju.insurance.entity.customer.Customer" useGeneratedKeys="true" keyProperty="id">
+        insert into customer values (0, #{email}, #{password}, #{name}, #{age}
+	        , <choose><when test="gender">1</when><otherwise>0</otherwise></choose>
+	        , #{registrationNo}, #{phoneNo}, #{accountNo}
+	        , <choose><when test="isMarried">1</when><otherwise>0</otherwise></choose>
+	        )
+    </insert>
+    
+    <select id="selectByColumnName" resultType="com.mju.insurance.entity.customer.Customer">
+        SELECT * FROM customer where ${column} = #{value}
+    </select>
+    
+    <select id="selectByEmail" resultType="com.mju.insurance.entity.customer.Customer">
+        SELECT * FROM customer where email = #{email}
+    </select>
+</mapper>
